@@ -1,0 +1,41 @@
+/* General styling */
+body {
+    font-family: Arial, sans-serif;
+}
+
+.home-hero {
+    padding: 60px;
+    margin-bottom: 30px;
+}
+
+img.img-fluid {
+    width: 100%;
+    height: auto;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mt-4 {
+    margin-top: 2rem;
+}
+
+/* Custom section styling */
+.bg-success {
+    background-color: #28a745 !important;
+}
+
+.bg-dark {
+    background-color: #343a40 !important;
+}
+
+.bg-light {
+    background-color: #f8f9fa !important;
+}
+
+.footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+}
