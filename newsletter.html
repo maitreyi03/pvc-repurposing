@@ -3,42 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recycling Newsletter</title>
+    <title>Recycling Newsletter - PVSEEKERS</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #e8f5e9;
+            background-color: #f0f8f5;
             color: #343a40;
         }
-        .container {
-            margin-top: 80px;
+
+        .navbar {
+            background-color: #388e3c;
         }
-        .newsletter-header {
+
+        .navbar-brand {
+            color: #fff !important;
+        }
+
+        .navbar-nav {
+            margin-right: auto;
+        }
+
+        .nav-link {
+            color: #fff !important;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-link .bi {
+            margin-right: 8px;
+            font-size: 1.2rem;
+        }
+
+        .main-header {
             text-align: center;
-            margin-bottom: 50px;
+            padding: 80px 20px;
+            background-color: #2e7d32;
+            color: #ffffff;
+        }
+
+        .main-header h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .main-header p {
+            font-size: 1.25rem;
+            font-weight: 300;
+        }
+
+        .section {
+            padding: 60px 20px;
+        }
+
+        .section h2 {
+            text-align: center;
+            margin-bottom: 40px;
             color: #2e7d32;
         }
+
         .news-card {
-            margin-bottom: 30px;
-            border: none;
+            background-color: #ffffff;
+            padding: 30px;
             border-radius: 15px;
-            overflow: hidden;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            transition: transform 0.3s ease;
         }
+
+        .news-card:hover {
+            transform: translateY(-10px);
+        }
+
         .news-card img {
             border-top-left-radius: 15px;
             border-top-right-radius: 15px;
+            max-height: 200px;
+            object-fit: cover;
         }
+
         .card-title {
             font-size: 1.25rem;
             font-weight: bold;
             color: #2e7d32;
         }
+
         .card-text {
             font-size: 0.95rem;
             color: #6c757d;
         }
+
         .btn-primary {
             background-color: #388e3c;
             border: none;
@@ -47,8 +102,41 @@
             transition: background-color 0.3s ease;
             margin-top: 15px;
         }
+
         .btn-primary:hover {
             background-color: #2e7d32;
+        }
+
+        footer {
+            background-color: #2e7d32;
+            color: #ffffff;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        footer a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .icon-card {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .icon-card i {
+            font-size: 3rem;
+            color: #2e7d32;
+            margin-bottom: 15px;
         }
     </style>
 </head>
@@ -64,61 +152,81 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="collection-center.html">Collection Center</a>
+                        <a class="nav-link" href="collection-center.html">
+                            <i class="bi bi-geo-alt-fill"></i> Collection Center
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="newsletter.html">Newsletter</a>
+                        <a class="nav-link" href="newsletter.html">
+                            <i class="bi bi-newspaper"></i> Newsletter
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="upcoming-events.html">Upcoming Events</a>
+                        <a class="nav-link" href="upcoming-events.html">
+                            <i class="bi bi-calendar-event-fill"></i> Upcoming Events
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="raffle.html">Raffle</a>
+                        <a class="nav-link" href="raffle.html">
+                            <i class="bi bi-ticket-fill"></i> Raffle
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="blog.html">
+                            <i class="bi bi-pencil"></i> Blog
+                        </a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
+    <!-- Main Header -->
+    <header class="main-header">
+        <h1>Latest News on Recycling and PVC</h1>
+        <p>Stay updated with the latest news on recycling, PVC repurposing, plastic pollution, and more.</p>
+    </header>
 
-    <!-- Main Content -->
-    <div class="container">
-        <div class="newsletter-header">
-            <h1>Latest News on Recycling and PVC</h1>
-            <p>Stay updated with the latest news on recycling, PVC repurposing, plastic pollution, and more.</p>
+    <!-- News Articles Section -->
+    <section class="section">
+        <div class="container">
+            <h2>News Articles</h2>
+            <div id="news-container" class="row">
+                <!-- News articles will be inserted here by JavaScript -->
+            </div>
         </div>
+    </section>
 
-        <!-- News Articles Section -->
-        <div id="news-container" class="row">
-            <!-- News articles will be inserted here by JavaScript -->
-        </div>
-    </div>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 PVSEEKERS | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+        <p>Follow us on:
+            <a href="#"><i class="bi bi-facebook"></i> Facebook</a> |
+            <a href="#"><i class="bi bi-twitter"></i> Twitter</a> |
+            <a href="#"><i class="bi bi-instagram"></i> Instagram</a>
+        </p>
+    </footer>
 
     <!-- JavaScript -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const apiKey = '9af256261d86433f8ac233e9790f158e'; // Replace with your NewsAPI key
-            const url = `https://newsapi.org/v2/everything?q=AI&apiKey=9af256261d86433f8ac233e9790f158e`;
+            const url = `https://newsapi.org/v2/everything?q=AI&apiKey=${apiKey}`;
 
             fetch(url)
                 .then(response => response.json())
                 .then(data => {
-                    console.log('API Response:', data); // Debugging statement
                     const articles = data.articles;
                     const newsContainer = document.getElementById('news-container');
 
                     if (articles && articles.length > 0) {
                         articles.forEach(article => {
-                            console.log('Article:', article); // Debugging each article
                             const newsCard = document.createElement('div');
                             newsCard.classList.add('col-md-4');
-                            
-                            console.log(article.urlToImage)
-                            console.log(article.title)
                             newsCard.innerHTML = `
-                                <div class="card news-card">
+                                <div class="news-card">
                                     <img src="${article.urlToImage || 'default-image.jpg'}" class="card-img-top" alt="${article.title}">
                                     <div class="card-body">
                                         <h5 class="card-title">${article.title}</h5>
@@ -131,7 +239,6 @@
                             newsContainer.appendChild(newsCard);
                         });
                     } else {
-                        console.log('No articles found.');
                         newsContainer.innerHTML = '<p>No news articles available at the moment.</p>';
                     }
                 })
@@ -143,7 +250,6 @@
     </script>
 
     <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
