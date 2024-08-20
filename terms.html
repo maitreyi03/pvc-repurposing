@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Collection Center</title>
+    <title>Terms of Service - PVC Recycling Initiative</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
     <style>
@@ -12,20 +12,6 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f0f8f5;
             color: #343a40;
-            padding-top: 70px; /* Increased padding for fixed navbar */
-        }
-
-        #map {
-            height: 500px;
-            width: 100%;
-        }
-
-        .container {
-            margin-top: 30px;
-        }
-
-        .search-bar {
-            margin-bottom: 20px;
         }
 
         .navbar {
@@ -51,20 +37,47 @@
             font-size: 1.2rem;
         }
 
-        footer {
+        .main-header {
+            text-align: center;
+            padding: 80px 20px;
+            background-color: #2e7d32;
+            color: #ffffff;
+        }
+
+        .main-header h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .main-header p {
+            font-size: 1.25rem;
+            font-weight: 300;
+        }
+
+        .section {
+            padding: 60px 20px;
+        }
+
+        .section h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #2e7d32;
+        }
+
+        .footer {
             background-color: #2e7d32;
             color: #ffffff;
             padding: 40px 20px;
             text-align: center;
         }
 
-        footer a {
+        .footer a {
             color: #ffffff;
             text-decoration: none;
             margin: 0 10px;
         }
 
-        footer a:hover {
+        .footer a:hover {
             text-decoration: underline;
         }
     </style>
@@ -118,24 +131,41 @@
         </div>
     </nav>
 
-    <!-- Main Content -->
-    <div class="container">
-        <h1 class="text-center">Find the Closest PVC Center</h1>
-        <div class="search-bar">
-            <div class="form-group">
-                <label for="location-input" class="form-label">Enter Your Zip Code</label>
-                <div class="d-flex">
-                    <input type="text" id="location-input" class="form-control" placeholder="Zip Code">
-                    <button id="search-btn" class="btn btn-primary ms-2">Search</button>
-                </div>
-            </div>
+    <!-- Main Header -->
+    <header class="main-header">
+        <h1>Terms of Service</h1>
+        <p>Read our terms and conditions for using our website and services.</p>
+    </header>
+
+    <!-- Terms of Service Section -->
+    <section class="section">
+        <div class="container">
+            <h2>Terms of Service</h2>
+            <p>Welcome to PVSeekers. These Terms of Service ("Terms") govern your use of our website, services, and any content provided by PVSeekers. By accessing or using our website, you agree to be bound by these Terms. If you do not agree with these Terms, please do not use our website.</p>
+
+            <h3>1. Use of Our Services</h3>
+            <p>You agree to use our services only for lawful purposes and in accordance with our guidelines. You must not use our website in any way that could damage, disable, or impair it or interfere with any other party's use of the website.</p>
+
+            <h3>2. User Accounts</h3>
+            <p>To use certain features of our website, you may need to create an account. You are responsible for maintaining the confidentiality of your account information and for all activities that occur under your account. Please notify us immediately of any unauthorized use of your account.</p>
+
+            <h3>3. Intellectual Property</h3>
+            <p>All content on our website, including text, graphics, logos, and images, is the property of PVSeekers or its content providers and is protected by intellectual property laws. You may not use, reproduce, or distribute any content from our website without our prior written permission.</p>
+
+            <h3>4. Limitation of Liability</h3>
+            <p>PVSeekers is not liable for any direct, indirect, incidental, special, or consequential damages arising from your use of our website or services. We make no warranties or representations regarding the accuracy or completeness of the content on our website.</p>
+
+            <h3>5. Changes to These Terms</h3>
+            <p>We reserve the right to modify these Terms at any time. Any changes will be posted on this page, and your continued use of our website constitutes acceptance of the revised Terms.</p>
+
+            <h3>6. Contact Us</h3>
+            <p>If you have any questions about these Terms or our services, please contact us at <a href="mailto:info@pvseekers.org">info@pvseekers.org</a>.</p>
         </div>
-        <div id="map"></div>
-    </div>
+    </section>
 
     <!-- Footer -->
-    <footer>
-        <p>&copy; 2024 PVSEEKERS | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    <footer class="footer">
+        <p>&copy; 2024 PVSEEKERS | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
         <p>Follow us on:
             <a href="#"><i class="bi bi-facebook"></i> Facebook</a> |
             <a href="#"><i class="bi bi-twitter"></i> Twitter</a> |
@@ -143,72 +173,6 @@
         </p>
     </footer>
 
-    <!-- Google Maps API -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBsPSf_Vtezl_sF8F-Gesk_LRkNrp5PVa4&libraries=places&callback=initMap" async defer></script>
-
-    <!-- JavaScript -->
-    <script>
-        let map;
-        let geocoder;
-
-        function initMap() {
-            var initialLocation = { lat: -37.8136, lng: 144.9631 };
-
-            map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 13,
-                center: initialLocation
-            });
-
-            geocoder = new google.maps.Geocoder();
-
-            // Sample locations for demonstration
-            var locations = [
-                { lat: -37.8136, lng: 144.9631 }, // Location 1
-                { lat: -37.8150, lng: 144.9650 }, // Location 2
-                { lat: -37.8160, lng: 144.9670 }  // Location 3
-            ];
-
-            locations.forEach(function(location) {
-                new google.maps.Marker({
-                    position: location,
-                    map: map
-                });
-            });
-        }
-
-        // Form submission handling
-        document.getElementById('search-btn').addEventListener('click', function(event) {
-            event.preventDefault();
-            var zipCode = document.getElementById('location-input').value;
-
-            if (zipCode) {
-                geocodeAddress(zipCode);
-            } else {
-                alert('Please enter a zip code.');
-            }
-        });
-
-        function geocodeAddress(zipCode) {
-            if (geocoder) {
-                geocoder.geocode({ 'address': zipCode }, function(results, status) {
-                    if (status === 'OK') {
-                        map.setCenter(results[0].geometry.location);
-                        new google.maps.Marker({
-                            map: map,
-                            position: results[0].geometry.location
-                        });
-                    } else {
-                        alert('Geocode was not successful for the following reason: ' + status);
-                    }
-                });
-            } else {
-                alert('Geocoder is not initialized.');
-            }
-        }
-    </script>
-
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
