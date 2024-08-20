@@ -1,26 +1,56 @@
-import sqlite3
+from flask import Flask, render_template, request, redirect, url_for
+import os
 
-conn = sqlite3.connect('pvc_reuse.db')
-cursor = conn.cursor()
+app = Flask(__name__)
 
-cursor.execute('''CREATE TABLE projects (
-                    id INTEGER PRIMARY KEY,
-                    title TEXT NOT NULL,
-                    description TEXT NOT NULL,
-                    image BLOB NOT NULL,
-                    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-                )''')
+UPLOAD_FOLDER = 'uploads'
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
-conn.commit()
+@app.route('/')
+def home():
+    return render_template('index.html')
 
-def save_project(title, description, image):
-    query = "INSERT INTO projects (title, description, image) VALUES (?, ?, ?)"
-    cursor.execute(query, (title, description, image))
-    conn.commit()
+@app.route('/about-us')
+def about_us():
+    return render_template('about-us.html')
 
-with open('path_to_image.jpg', 'rb') as file:
-    binary_image = file.read()
-    save_project('Creative Planters', 'A local artist...', binary_image)
+@app.route('/collection-center')
+def collection_center():
+    return render_template('collection-center.html')
 
-cursor.close()
-conn.close()
+@app.route('/upcoming-events')
+def upcoming_events():
+    return render_template('upcoming-events.html')
+
+@app.route('/raffle', methods=['GET', 'POST'])
+def raffle():
+    if request.method == 'POST':
+        name = request.form.get('name')
+        email = request.form.get('email')
+        # Handle file upload
+        donation_photo = request.files.get('donation-photo')
+        
+        if donation_photo:
+            # Save the file to the uploads folder
+            filename = donation_photo.filename
+            filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            donation_photo.save(filepath)
+
+        # Redirect to a success page or handle submission success
+        return redirect(url_for('raffle_success'))
+    
+    return render_template('raffle.html')
+
+@app.route('/blog')
+def blog():
+    return render_template('blog.html')
+
+@app.route('/raffle-success')
+def raffle_success():
+    return 'Raffle entry submitted successfully!'
+
+if __name__ == '__main__':
+    if not os.path.exists(UPLOAD_FOLDER):
+        os.makedirs(UPLOAD_FOLDER)
+        
+    app.run(debug=True)

@@ -231,8 +231,8 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">
-                <img src="./PVC-logo.png" alt="PVC Logo" style="height: 50px;">
+            <a class="navbar-brand" href="{{ url_for('home') }}">
+                <img src="{{ url_for('static', filename='PVC-logo.png') }}" alt="PVC Logo" style="height: 50px;">
                 PVSeekers
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -241,27 +241,27 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="about-us.html">
+                        <a class="nav-link" href="{{ url_for('about_us') }}">
                             <i class="bi bi-person-circle"></i> About Us
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="collection-center.html">
+                        <a class="nav-link" href="{{ url_for('collection_center') }}">
                             <i class="bi bi-geo-alt-fill"></i> Collection Center
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="upcoming-events.html">
+                        <a class="nav-link" href="{{ url_for('upcoming_events') }}">
                             <i class="bi bi-calendar-event-fill"></i> Upcoming Events
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="raffle.html">
+                        <a class="nav-link" href="{{ url_for('raffle') }}">
                             <i class="bi bi-ticket-fill"></i> Raffle
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="blog.html">
+                        <a class="nav-link" href="{{ url_for('blog') }}">
                             <i class="bi bi-pencil"></i> Blog
                         </a>
                     </li>
@@ -269,6 +269,7 @@
             </div>
         </div>
     </nav>
+    
     
 
     <!-- Header -->
